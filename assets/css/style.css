@@ -211,7 +211,7 @@ h6 {
     z-index: 999;
   }
   
-  .blob {
+  /*.blob {
 	background: linear-gradient(0deg, rgb(10, 32, 59) 0%, rgb(16, 88, 148) 90%);
     margin-top: -11%;
     margin-left: -0.1%;
@@ -270,7 +270,7 @@ h6 {
         -moz-box-shadow: 0 0 0 0 rgba(204,169,44, 0);
           box-shadow: 0 0 0 0 rgba(204,169,44, 0);
       }
-}
+}*/
 
 a {
     color:white
