@@ -1,5 +1,6 @@
 # MikuProj
  A Miku WebPlayer
+ [Test Now](https://grabel7.github.io/MikuProj/ "GitHub Pages, Miku Proj")
 
 MikuProj is a WebPlayer who works with Hatsune Miku's songs. All of the songs have their respective credits in the layout, and in licenses.txt.
 
