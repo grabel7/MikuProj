@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="icon" type="image/x-icon" href="assets/images/miku.ico">    
+    <link rel="icon" type="image/x-icon" href="assets/images/icon.ico">    
     <script src="https://unpkg.com/boxicons@2.1.2/dist/boxicons.js"></script>
     <link rel="stylesheet" href="./assets/css/style.css">
     
@@ -13,13 +13,13 @@
     <script src="./assets/js/main.js" defer></script>    
     <title>MikuProj</title>
 </head>
-<body>
+<body onload="load()">
 <div class="audio-container">
-        <h1>Miku Proj.</h1>
+    <div class="inline"><a href="index.html"><img src="assets/images/icon.ico" class="icon" alt="MikuProj Icon"></a><h1>Miku Proj.</h1></div>
 
         <div class="audio-img-wrapper">
             <div class="audio-img">
-                <img src="assets/images/vynil-1.png" class ='audio-vynil'alt="Hatsune Miku vinyl disc">
+                <img src="assets/images/vynil-1.png" class ='audio-vynil image'alt="Hatsune Miku vinyl disc">
                 <div class="pulse"></div>
             </div>
             <h2 class="audio-title">Song Name</h2>
@@ -49,12 +49,16 @@
             </button>
         </div>
         <footer><img src='assets/images/shuffle.png' class="btn shuffle">
-
+        
             <form>
            <input type="range" id="vol" max="1" min="0" step="0.01" onchange="changevolume(this.value)" />
             <p id="percent">50%</p>
+            <h6 class="foot version"><a href="changelog.html">v1.0</a></h6>
           </form></footer>
-        
+          <!--Test Area-->
+          
+      </div>
+          
     </div>
 
     

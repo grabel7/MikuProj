@@ -1,0 +1,64 @@
+body, html{
+    margin: 0;
+    padding: 0;
+    font-family: 'Fjalla One', sans-serif;
+    background: rgb(18,69,130);
+    background: linear-gradient(0deg, rgb(10, 32, 59) 0%, rgb(66, 8, 8) 90%);
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    color: #fafafa;
+    user-select: none;
+    text-shadow: 0 0 3px #000000, 0 0 5px #000000;
+}
+
+.icon{
+    height: 30px;
+    display: inline;    
+    flex: 1;
+    margin-top: 19px
+}
+
+.inline{
+    display: grid;
+    grid-template-columns: 0.9fr 0.48fr
+    
+}
+
+.audio-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+h1{
+    text-transform: uppercase;
+    font-size: 1.2rem;
+}
+
+
+section {
+    background: rgb(0, 0, 0);
+    border-radius: 10px;
+    padding: 15px;
+    width: 500px;
+    margin: auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.288);
+}
+
+.version{
+    background:linear-gradient(162deg, rgba(41,9,21,1) 39%, rgba(6,21,42,1) 80%);
+    border-radius: 10px;
+    margin: auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.288);
+}
+
+.answer {
+    background: linear-gradient(162deg, rgba(45,18,28,1) 39%, rgba(11,31,58,1) 80%);
+    border-radius: 10px;
+    padding: 7px;
+    margin: auto;
+    box-shadow: 5px 5px 10px rgba(0, 0, 0, 0.288);
+
+}

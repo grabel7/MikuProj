@@ -2,7 +2,7 @@ const playBtn = document.querySelector(".play"),
     skipForwardBtn = document.querySelector(".skip-forward"),
     skipBack = document.querySelector(".skip-back"),
     shuffle = document.querySelector('.shuffle'),
-    img = document.querySelector('img'),
+    img = document.querySelector('.image'),
     title = document.querySelector('.audio-title'),
     singer = document.querySelector('.audio-singer'),
     autor = document.querySelector('.audio-autor'),
@@ -11,7 +11,8 @@ const playBtn = document.querySelector(".play"),
     progressBar = document.querySelector('.progress-bar'),
     progressHead = document.querySelector('.progress-head'),
     currentTimeHtml = document.querySelector('.current-time'),
-    durationHtml = document.querySelector('.duration')
+    durationHtml = document.querySelector('.duration'),
+    version = document.querySelector('.version')
     
 this.tracks = [
 {
@@ -21,7 +22,9 @@ this.tracks = [
     source: "./assets/songs/1-Oblivion.mp3",
     autor: '[Ctrl Ult Delete]',
     url: 'https://www.youtube.com/@CtrlUltDelete',
-    color: '#420808'
+    color: '#420808',
+    id: '0',
+    saved: false
 },
 {
     name: "Ievan Polkka",
@@ -30,7 +33,9 @@ this.tracks = [
     source: "./assets/songs/2-Ievan_Polkka.mp3",
     autor: '[Hatsune Miku]',
     url: 'https://github.com/grabel7',
-    color: '#28633B'
+    color: '#28633B',
+    id: '1',
+    saved: false
 },
 {
     name: "Amor de que",
@@ -39,7 +44,9 @@ this.tracks = [
     source: "./assets/songs/3-Amor_de_que.mp3",
     autor: "[Im G Felipe]",
     url: 'https://www.youtube.com/@ImGFelipe',
-    color: '#ec5555'
+    color: '#ec5555',
+    id: '2',
+    saved: false
 },
 {
     name: "BANDIDA 2.0",
@@ -150,6 +157,7 @@ shuffle.addEventListener('click', () =>{
     tracks.sort((a, b) => 0.5 - Math.random());
     shuffle.setAttribute('src', './assets/images/shuffled.png')
     }})
+let heart = document.getElementById('heart');
 
 audio = new Audio();
 audio.src = currentTrack.source;
@@ -198,7 +206,6 @@ playBtn.addEventListener('click', () => {
         audio.pause();
         isTimerPlaying = false;
     }
-
 });
 
 progressContainer.addEventListener('click', (x) => {
@@ -212,6 +219,7 @@ progressContainer.addEventListener('click', (x) => {
     barWidth = percentage + "%";
     progressBar.style.width = `${barWidth}`
     progressHead.style.setProperty("left", `${barWidth}`)
+    EachMusic()
 })
 
 skipForwardBtn.addEventListener("click", () => {
@@ -220,7 +228,6 @@ skipForwardBtn.addEventListener("click", () => {
     } else {
         currentTrackIndex = 0;
     }
-    
     currentTrack = tracks[currentTrackIndex];
 
     audio.src = currentTrack.source;
@@ -238,6 +245,7 @@ skipForwardBtn.addEventListener("click", () => {
     audio.currentTime = 0;
     audio.src = currentTrack.source;
 
+    EachMusic()
     setTimeout(() => {
         if(isTimerPlaying){
             audio.play();
@@ -253,7 +261,6 @@ skipBack.addEventListener("click", () => {
         currentTrackIndex = this.tracks.length - 1;
     }
     currentTrack = tracks[currentTrackIndex];
-
     audio.src = currentTrack.source;
     img.src = currentTrack.cover;
     title.innerText = currentTrack.name;
@@ -267,7 +274,7 @@ skipBack.addEventListener("click", () => {
 
     audio.currentTime = 0;
     audio.src = currentTrack.source;
-
+    EachMusic()
     setTimeout(() => {
         if(isTimerPlaying){
             audio.play();
@@ -280,20 +287,11 @@ skipBack.addEventListener("click", () => {
 audio.ontimeupdate = function(){
     //Tab Title
     document.title = currentTrack.name + " - MikuProj"
-    
-
-    //Artist credits
-    singer.innerText = currentTrack.artist;
-    autor.innerHTML = `<a target="_blank" href=${currentTrack.url}>${currentTrack.autor}</a>`
-
-    //Change color of each music
-    document.body.style.background = `linear-gradient(0deg, #0A203B 0%, ${currentTrack.color}`
-
+    EachMusic()
     if(audio.duration){
         
         barWidth = (100/ audio.duration) * audio.currentTime;
-    
-
+        
         let durmin = Math.floor(audio.duration/ 60);
         let dursec = Math.floor(audio.duration - durmin * 60);
         let curmin = Math.floor(audio.currentTime / 60);
@@ -314,10 +312,8 @@ audio.ontimeupdate = function(){
         } else {
             currentTrackIndex = 0;
         }
-    
+        EachMusic()
         currentTrack = tracks[currentTrackIndex];
-
-        
     
         audio.src = currentTrack.source;
         img.src = currentTrack.cover;
@@ -355,5 +351,24 @@ audio.ontimeupdate = function(){
         }
 
     }
+}
+
+
+
+function load(){
+    //Change Version
+    version.innerHTML = '<h6 class="foot version"><a href="changelog.html" target="_blank">v1.1</a></h6>'
+    EachMusic()
+}
+
+function EachMusic(){
+
+    //Artist credits
+    singer.innerText = currentTrack.artist;
+    autor.innerHTML = `<a target="_blank" href=${currentTrack.url}>${currentTrack.autor}</a>`
+
+    //Change color of each music
+    document.body.style.background = `linear-gradient(0deg, #0A203B 0%, ${currentTrack.color}`
+
 }
 
