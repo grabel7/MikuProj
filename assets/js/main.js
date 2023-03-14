@@ -22,9 +22,7 @@ this.tracks = [
     source: "./assets/songs/1-Oblivion.mp3",
     autor: '[Ctrl Ult Delete]',
     url: 'https://www.youtube.com/@CtrlUltDelete',
-    color: '#420808',
-    id: '0',
-    saved: false
+    color: '#420808'
 },
 {
     name: "Ievan Polkka",
@@ -33,9 +31,7 @@ this.tracks = [
     source: "./assets/songs/2-Ievan_Polkka.mp3",
     autor: '[Hatsune Miku]',
     url: 'https://github.com/grabel7',
-    color: '#28633B',
-    id: '1',
-    saved: false
+    color: '#28633B'
 },
 {
     name: "Amor de que",
@@ -44,9 +40,7 @@ this.tracks = [
     source: "./assets/songs/3-Amor_de_que.mp3",
     autor: "[Im G Felipe]",
     url: 'https://www.youtube.com/@ImGFelipe',
-    color: '#ec5555',
-    id: '2',
-    saved: false
+    color: '#ec5555'
 },
 {
     name: "BANDIDA 2.0",
@@ -290,9 +284,13 @@ img.addEventListener('click', () => {
 
     if (currentTrack.color != '#44cabf'){stocked = currentTrack.color}
 
+    if (clicks == 5){
+        let secretmusic = new Audio('./assets/songs/hatsune-miku-lemon.mp3');
+        secretmusic.volume = 1;
+        secretmusic.play()
+    }
     if (clicks >= 5 && clicks <= 10) {
         img.setAttribute('src', './assets/images/mikuhead.png')
-        
         currentTrack.color = '#44cabf'
     } else {
         currentTrack.color = stocked
@@ -482,9 +480,7 @@ function EachMusic(){
     document.body.style.background = `linear-gradient(0deg, #0A203B 0%, ${currentTrack.color}`
 
     numbers = 0
-    
 }
-
 
 function OneTime(){
 // Observe if Source Audio Changes
