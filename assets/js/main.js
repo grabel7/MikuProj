@@ -143,7 +143,7 @@ this.tracks = [
     name: "Amiga da Minha Mulher",
     artist: "Hatsune Miku",
     cover: "./assets/images/vynil-14.png",
-    source: "./assets/songs/14-amiga.mp3",
+    source: "./assets/songs/14-Amiga.mp3",
     autor: "[SudonynP]",
     url: "https://www.youtube.com/@SudonynP",
     color: '#57a4b7'
@@ -462,7 +462,7 @@ audio.ontimeupdate = function(){
 
 function load(){
     //Change Version
-    version.innerHTML = '<h6 class="foot version"><a href="changelog.html" target="_blank">v1.2</a></h6>'
+    version.innerHTML = '<h6 class="foot version"><a href="changelog.html" target="_blank">v1.2b</a></h6>'
     OneTime()
     EachMusic()
 
