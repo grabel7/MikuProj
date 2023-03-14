@@ -139,8 +139,115 @@ this.tracks = [
     url: "https://www.youtube.com/@step_stone",
     color: '#06464d'
 },
+{
+    name: "Amiga da Minha Mulher",
+    artist: "Hatsune Miku",
+    cover: "./assets/images/vynil-14.png",
+    source: "./assets/songs/14-amiga.mp3",
+    autor: "[SudonynP]",
+    url: "https://www.youtube.com/@SudonynP",
+    color: '#57a4b7'
+},
+{
+    name: "Say So",
+    artist: "Hatsune Miku",
+    cover: "./assets/images/vynil-15.png",
+    source: "./assets/songs/15-SaySo.mp3",
+    autor: "[B'Jonas]",
+    url: "https://www.youtube.com/@BJonas",
+    color: '#060d0e'
+},
+{
+    name: "Ônibus vai Derrapar",
+    artist: "Hatsune Miku",
+    cover: "./assets/images/vynil-16.png",
+    source: "./assets/songs/16-Onibus.mp3",
+    autor: "[Charles Zhang]",
+    url: "https://www.youtube.com/@charleszhang25",
+    color: '#060d0e'
+},
+{
+    name: "ENVOLVIMENTO",
+    artist: "MC Miku e as Gêmeas Spicy & Sugar",
+    cover: "./assets/images/vynil-17.png",
+    source: "./assets/songs/17-envolvimento.mp3",
+    autor: "[Im G Felipe]",
+    url: 'https://www.youtube.com/@ImGFelipe',
+    color: '#cf9f26'
+},
+{
+    name: "Banho de Lua [COVER]",
+    artist: "Hatsune Miku",
+    cover: "./assets/images/vynil-18.png",
+    source: "./assets/songs/18-banho.mp3",
+    autor: "[SudonynP]",
+    url: "https://www.youtube.com/@SudonynP",
+    color: '#817d74'
+},
+{
+    name: "Eu to Voando Alto",
+    artist: "Hatsune Miku ft. Mc Poze",
+    cover: "./assets/images/vynil-19.png",
+    source: "./assets/songs/19-voandoalto.mp3",
+    autor: "[SudonynP]",
+    url: "https://www.youtube.com/@SudonynP",
+    color: '#35a1d0'
+},
+{
+    name: "Basta Você me Ligar",
+    artist: "Hatsune Miku ft. BARÕES DA PISADINHA",
+    cover: "./assets/images/vynil-20.png",
+    source: "./assets/songs/20-basta.mp3",
+    autor: "[hjordis]",
+    url: "https://www.youtube.com/@hjordis7893",
+    color: '#79cdf1'
+},
+{
+    name: "It's Been so Long",
+    artist: "Vocaloid",
+    cover: "./assets/images/vynil-21.png",
+    source: "./assets/songs/21-solong.mp3",
+    autor: "[makku]",
+    url: "https://www.youtube.com/@MakkuSanDesu",
+    color: '#853819'
+},
+{
+    name: "Sweater Weather",
+    artist: "Vocaloid",
+    cover: "./assets/images/vynil-22.png",
+    source: "./assets/songs/22-weather.mp3",
+    autor: "[stepstone]",
+    url: "https://www.youtube.com/@step_stone",
+    color: '#b4c3ca'
+},
+{
+    name: "Country Roads",
+    artist: "Hatsune Miku",
+    cover: "./assets/images/vynil-23.png",
+    source: "./assets/songs/23-country.mp3",
+    autor: "[stepstone]",
+    url: "https://www.youtube.com/@step_stone",
+    color: '#e9a84e'
+},
+{
+    name: "Ms. Miku After Dark",
+    artist: "Hatsune Miku",
+    cover: "./assets/images/vynil-24.png",
+    source: "./assets/songs/24-after.mp3",
+    autor: "[Astrophysics]",
+    url: "https://www.youtube.com/@Astrophysicsynth",
+    color: '#9e0000'
+},
+{
+    name: "PayPhone",
+    artist: "Hatsune Miku",
+    cover: "./assets/images/vynil-25.png",
+    source: "./assets/songs/25-payphone.mp3",
+    autor: "[stepstone]",
+    url: "https://www.youtube.com/@step_stone",
+    color: '#bcb05c'
+},
 ];
-
 
     // Initial values
 let audio = null,
@@ -150,6 +257,7 @@ let audio = null,
     isTimerPlaying = false,
     currentTrackIndex = 0,
     currentTrack = tracks[0];
+
 shuffle.addEventListener('click', () =>{
     shuffle.classList.toggle('toggled')
     document.querySelector('.skip-forward').click();
@@ -157,14 +265,12 @@ shuffle.addEventListener('click', () =>{
     tracks.sort((a, b) => 0.5 - Math.random());
     shuffle.setAttribute('src', './assets/images/shuffled.png')
     }})
-let heart = document.getElementById('heart');
 
 audio = new Audio();
 audio.src = currentTrack.source;
 audio.setAttribute("id", "music")
 img.src = currentTrack.cover;
 title.innerText = currentTrack.name;
-
 
  //Volume
 function changevolume(amount) {
@@ -179,7 +285,6 @@ let stocked = ''
 img.addEventListener('click', () => {
     var secretaudio = new Audio('./assets/songs/miku-book-boop.mp3');
     clicks++ 
-    console.log(clicks)
     secretaudio.volume = 1;
     secretaudio.play();
 
@@ -197,6 +302,7 @@ img.addEventListener('click', () => {
     }
 })
 
+//Play Button
 playBtn.addEventListener('click', () => {
     if(audio.paused){
         audio.play();
@@ -213,7 +319,7 @@ progressContainer.addEventListener('click', (x) => {
     let position = x.pageX - progressContainer.offsetLeft;
     let percentage = (100 * position)/ progressContainer.offsetWidth;
     if(percentage > 100) percentage = 100;
-    if(percentage < 0) percentage = 0;
+    if(percentage < 0) percentage = 0 ; 
 
     audio.currentTime = (maxduration * percentage) /100;
     barWidth = percentage + "%";
@@ -222,6 +328,7 @@ progressContainer.addEventListener('click', (x) => {
     EachMusic()
 })
 
+//Skip Forward
 skipForwardBtn.addEventListener("click", () => {
     if(currentTrackIndex < tracks.length -1) {
         currentTrackIndex++;
@@ -254,6 +361,7 @@ skipForwardBtn.addEventListener("click", () => {
     }, 300)
 })
 
+//Skip Backward
 skipBack.addEventListener("click", () => {
     if(currentTrackIndex > 0) {
         currentTrackIndex--;
@@ -282,8 +390,7 @@ skipBack.addEventListener("click", () => {
     }, 300)
 })
 
-
-
+// Every Tick
 audio.ontimeupdate = function(){
     //Tab Title
     document.title = currentTrack.name + " - MikuProj"
@@ -340,25 +447,29 @@ audio.ontimeupdate = function(){
             playIcon.classList.remove('fa-play');
             playIcon.classList.add('fa-pause');
             img.classList.add('spinning');
-            blob.classList.add('blob')
-            blob.classList.remove('stop')
+            //blob.classList.add('blob')
+            //blob.classList.remove('stop')
         } else {
             playIcon.classList.add('fa-play');
             playIcon.classList.remove('fa-pause');
             img.classList.remove('spinning')
-            blob.classList.remove('blob')
-            blob.classList.add('stop')
+            //blob.classList.remove('blob')
+            //blob.classList.add('stop')
         }
 
     }
 }
 
-
-
 function load(){
     //Change Version
-    version.innerHTML = '<h6 class="foot version"><a href="changelog.html" target="_blank">v1.1</a></h6>'
+    version.innerHTML = '<h6 class="foot version"><a href="changelog.html" target="_blank">v1.2</a></h6>'
+    OneTime()
     EachMusic()
+
+    var element = document.createElement('li')
+          element.innerHTML = `${currentTrack.name} - Credits: ${currentTrack.autor}`
+          document.querySelector('.hist').appendChild(element)
+    
 }
 
 function EachMusic(){
@@ -370,5 +481,35 @@ function EachMusic(){
     //Change color of each music
     document.body.style.background = `linear-gradient(0deg, #0A203B 0%, ${currentTrack.color}`
 
+    numbers = 0
+    
 }
 
+
+function OneTime(){
+// Observe if Source Audio Changes
+//Historic
+observer = new MutationObserver((changes) => {
+    changes.forEach(change => {
+        if(change.attributeName.includes('src') && numbers == 0){
+            var element = document.createElement('li')
+          element.innerHTML = `${currentTrack.name} - Credits: ${currentTrack.autor}`
+          document.querySelector('.hist').appendChild(element)
+          numbers++
+        }
+    });
+  });
+  observer.observe(audio, {attributes : true});
+
+}
+//Show hist
+document.querySelector('.historico').addEventListener('click', () => {
+    document.querySelector('.historic').classList.toggle('show')
+    document.getElementById('2').classList.toggle('show')
+    
+})
+
+document.querySelector('#close').addEventListener('click', () => {
+    document.querySelector('.historic').classList.toggle('show')
+    document.getElementById('2').classList.toggle('show')
+})

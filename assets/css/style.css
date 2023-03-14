@@ -49,6 +49,7 @@ body, html{
 .audio-img {
     width: 200px;
     height: 200px;
+    z-index: 20
 }
 
 h1{
@@ -216,6 +217,17 @@ h6 {
     background: linear-gradient(to right, #f088fc 1%, #AC6CFF 70%);
   }
 
+  /*Negate Mobile View*/
+@media (max-width: 992px)  {
+
+    form {
+        display: none;
+    }
+    .shuffle{
+        margin-right: 90px;
+    }
+ }
+
   footer {
     text-align: center;
   }
@@ -299,3 +311,100 @@ a {
     transform: scale(0.98);
     box-shadow: 3px 2px 22px 1px rgba(0, 0, 0, 0.24);}
 
+.historic{
+    position: absolute;
+    left: 0;
+    bottom: -55%;
+    opacity: 0;
+    pointer-events: none;
+    border-radius:5px;
+    width: 30%;
+    padding: 15px 30px;
+    background: var(--white);
+    box-shadow: 0px -5px 10px black;
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    transition: all 0.14s ease;
+}
+
+.h {
+    z-index: 100
+}
+.he{
+    z-index: 99;
+}
+
+ .historic.show{
+    bottom: 0;
+    opacity: 1;
+    pointer-events: auto;
+    background-color: rgb(52, 128, 141);
+ }
+.historico{
+    cursor: pointer;
+}
+
+#close {
+    cursor: pointer;
+}
+
+.historic .header-histor .row{
+    display: flex;
+    font-size: 22px;
+}
+
+.header-histor .row i{
+    cursor: default;
+}
+
+.header-histor .row .spawn{
+    margin-left: 5px;
+}
+
+.header-histor #close{
+    font-size: 22px;
+    color: var(--lightblack);
+}
+.historic ul{
+    margin: 10px 0;
+}
+.historic li{
+    list-style: none;
+    padding-bottom: 10px;
+    margin-bottom: 7px;
+    color: rgb(255, 255, 255);
+    border-bottom: 1px solid #292727;
+}
+
+.historic ul li:last-child{
+    border-bottom: 0px;
+    
+}
+.historic ul li .row span{
+    font-size: 17px;
+}
+
+.btns {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-gap: 20px;
+}
+
+.historico{
+    margin-left: 60%;
+    margin-top: -1%;
+    width: 30px;
+}
+
+.close {
+    width: 30px;
+}
+
+nav ul{
+    height:350px;
+}
+nav ul{
+    overflow:hidden; 
+    overflow-y:scroll;
+}

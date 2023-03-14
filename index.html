@@ -48,7 +48,8 @@
                 <div class="fa-solid fa-forward-step"></div>
             </button>
         </div>
-        <footer><img src='assets/images/shuffle.png' class="btn shuffle">
+        <footer><div class="btns"><img src='assets/images/shuffle.png' class="btn shuffle">
+            <p class="historico closed"><img class = 'historico btn'src='assets/images/history.png'></p></div>
         
             <form>
            <input type="range" id="vol" max="1" min="0" step="0.01" onchange="changevolume(this.value)" />
@@ -56,9 +57,22 @@
             <h6 class="foot version"><a href="changelog.html">v1.0</a></h6>
           </form></footer>
           <!--Test Area-->
-          
+          <div class="historic h">
+            <div class="header-histor">
+                <div class="row">
+                <span>History</span>
+                </div>
+            </div>
+            <i id="close" class="btn"><img class="close" src="assets/images/close.png"></i>
+        </div> <nav>
+        <ul class="historic he scroll" id="2">
+      <li>
+        <div class="row hist" id="2">
+        </div>
+      </li>
+    </ul>
       </div>
-          
+    </nav>
     </div>
 
     
