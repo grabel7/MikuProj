@@ -1,11 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Fjalla+One&display=swap');
 
+
 body, html{
     margin: 0;
     padding: 0;
     font-family: 'Fjalla One', sans-serif;
     background: rgb(18,69,130);
     background: linear-gradient(0deg, rgb(10, 32, 59) 0%, rgb(66, 8, 8) 90%);
+    background-attachment: fixed;
     height: 100%;
     width: 100%;
     overflow: hidden;
@@ -122,6 +124,12 @@ h6 {
     border-radius: 100%;
     z-index: 2;
     box-shadow: 0 0 0 3px #aaabf8 
+}
+
+.progress-head:hover{
+    height: 25px;
+    width: 25px;
+    transition: 0.1s;
 }
 
 .current-time {
